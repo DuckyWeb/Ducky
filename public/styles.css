@@ -1,0 +1,108 @@
+/* Basic page styling */
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f06, #60f);
+    color: white;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transform: rotateX(10deg) rotateY(20deg);
+    transition: transform 0.5s ease;
+}
+
+.container:hover {
+    transform: rotateX(15deg) rotateY(25deg) scale(1.05);
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #06f, #f0f);
+    color: white;
+    cursor: pointer;
+}
+
+/* Loading animation */
+.loading-animation {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* AI response box styling */
+#responseBox {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transform: rotateX(10deg) rotateY(10deg);
+    transition: transform 0.3s ease;
+    color: #fff;
+    font-size: 1em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #333, #000);
+    color: #eee;
+}
+
+.dark-mode .container, .dark-mode #responseBox {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode input[type="text"] {
+    background: rgba(0, 0, 0, 0.7);
+    color: #eee;
+}
+
+.theme-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
