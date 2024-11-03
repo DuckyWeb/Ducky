@@ -11,6 +11,13 @@
     <link rel="apple-touch-icon" href="dark-fav.png" />
     <link id="favicon" rel="icon" href="light-fav.png" type="image/png"> <!-- Default favicon -->
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
         /* Additional CSS for loading spinner */
         #loadingCircle {
             display: none;
@@ -57,10 +64,16 @@
             border: none;
             margin: 20px auto; /* Center the iframe with margin */
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             transform: rotateX(10deg) rotateY(10deg); /* Tilt effect */
             transition: transform 0.3s ease;
+        }
+
+        /* To prevent iframe content from exceeding bounds */
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Ensure content is scrollable */
         }
 
         /* Copy and Fullscreen buttons */
@@ -139,7 +152,7 @@
             <i class="fas fa-copy"></i>
             <span class="tooltiptext">Copy Code</span>
         </button>
-        <button class="icon-button tooltip" id="fullscreenButton" target="_blank">
+        <button class="icon-button tooltip" id="fullscreenButton">
             <i class="fas fa-expand"></i>
             <span class="tooltiptext">Open Fullscreen</span>
         </button>
@@ -182,7 +195,7 @@
                     buttonContainer.style.display = "flex"; // Show buttons after response
                     const doc = responseFrame.contentDocument || responseFrame.contentWindow.document;
                     doc.open();
-                    doc.write(responseText);
+                    doc.write(`<div class="iframe-content">${responseText}</div>`);
                     doc.close();
 
                     // Automatically copy to clipboard
@@ -223,13 +236,17 @@
                 .catch(err => console.error("Could not copy text: ", err));
         });
 
-        // Open iframe content in a new tab
+        // Open iframe content in fullscreen
         fullscreenButton.addEventListener("click", () => {
-            const responseDoc = responseFrame.contentDocument || responseFrame.contentWindow.document;
-            const responseText = responseDoc.body.innerHTML;
-            const newWindow = window.open('about:blank', '_blank');
-            newWindow.document.write(responseText);
-            newWindow.document.close();
+            if (responseFrame.requestFullscreen) {
+                responseFrame.requestFullscreen();
+            } else if (responseFrame.mozRequestFullScreen) { // Firefox
+                responseFrame.mozRequestFullScreen();
+            } else if (responseFrame.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                responseFrame.webkitRequestFullscreen();
+            } else if (responseFrame.msRequestFullscreen) { // IE/Edge
+                responseFrame.msRequestFullscreen();
+            }
         });
 
         // Theme toggle functionality
