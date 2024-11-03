@@ -1,2 +1,3 @@
 # Ducky
-An ai website generator
+
+Ducky is a website generator powered by Google
