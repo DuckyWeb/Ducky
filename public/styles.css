@@ -107,3 +107,160 @@ body.dark-mode {
     font-size: 24px;
 }
 
+
+        .contact-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start for better layout */
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+            color: white; /* Maintain text color consistent with the theme */
+            width: 100%; /* Ensure label takes full width for alignment */
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.3); /* Lighter background for input fields */
+            color: white;
+            width: 100%; /* Make input and textarea full width of the form */
+        }
+        .contact-form textarea {
+            resize: none; /* Prevent manual resizing */
+            overflow: auto; /* Allow scrolling if the content exceeds the height */
+            min-height: 60px; /* Minimum height for the textarea */
+            max-height: 200px; /* Maximum height to avoid excessive growth */
+        }
+        .contact-form button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #06f, #f0f);
+            color: white;
+            cursor: pointer;
+            font-size: 1em; /* Slightly smaller font for the button */
+            width: 100%; /* Make button full width */
+        }
+        .contact-form button:hover {
+            background-color: #218838; /* Hover effect for the button */
+        }
+
+        /* Dark mode styles */
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1); /* Darker background for dark mode */
+            color: white; /* Ensure text color is white for better contrast */
+        }
+
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        /* Additional CSS for loading spinner */
+        #loadingCircle {
+            display: none;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin: 10px auto; /* Centering the spinner */
+        }
+
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(to right, white, white);
+            animation: loadingAnimation 1.2s infinite ease-in-out;
+        }
+
+        /* Position the dots around the circle */
+        .dot:nth-child(1) { top: 0; left: 50%; transform: translate(-50%, -50%); }
+        .dot:nth-child(2) { top: 15%; left: 85%; transform: translate(-50%, -50%); }
+        .dot:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+        .dot:nth-child(4) { top: 85%; left: 85%; transform: translate(-50%, -50%); }
+        .dot:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+        .dot:nth-child(6) { top: 85%; left: 15%; transform: translate(-50%, -50%); }
+        .dot:nth-child(7) { top: 50%; left: 0; transform: translate(-50%, -50%); }
+        .dot:nth-child(8) { top: 15%; left: 15%; transform: translate(-50%, -50%); }
+
+        @keyframes loadingAnimation {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Centering the loading spinner */
+        .container {
+            text-align: center; /* Center contents */
+        }
+
+        /* Iframe styling */
+        #responseFrame {
+            width: 80%;  /* Adjusted width */
+            height: 300px; /* Adjust height as needed */
+            border: none;
+            margin: 20px auto; /* Center the iframe with margin */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: rotateX(10deg) rotateY(10deg); /* Tilt effect */
+            transition: transform 0.3s ease;
+        }
+
+        /* To prevent iframe content from exceeding bounds */
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Ensure content is scrollable */
+        }
+
+        /* Copy and Fullscreen buttons */
+        .button-container {
+            margin-top: 10px;
+            display: none; /* Initially hide the button container */
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+        }
+
+        /* Tooltip styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the button */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }

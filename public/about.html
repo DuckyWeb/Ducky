@@ -9,58 +9,7 @@
     <title>About Ducky</title>
     <link rel="stylesheet" href="styles.css">
     <link id="favicon" rel="icon" href="light-fav.png" type="image/png"> <!-- Default favicon -->
-    <style>
-        /* Additional styling for the contact form */
-        .contact-form {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Align items to the start for better layout */
-        }
-        .contact-form label {
-            margin-bottom: 5px;
-            color: white; /* Maintain text color consistent with the theme */
-            width: 100%; /* Ensure label takes full width for alignment */
-        }
-        .contact-form input,
-        .contact-form textarea {
-            padding: 8px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.3); /* Lighter background for input fields */
-            color: white;
-            width: 100%; /* Make input and textarea full width of the form */
-        }
-        .contact-form textarea {
-            resize: none; /* Prevent manual resizing */
-            overflow: auto; /* Allow scrolling if the content exceeds the height */
-            min-height: 60px; /* Minimum height for the textarea */
-            max-height: 200px; /* Maximum height to avoid excessive growth */
-        }
-        .contact-form button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            background: linear-gradient(135deg, #06f, #f0f);
-            color: white;
-            cursor: pointer;
-            font-size: 1em; /* Slightly smaller font for the button */
-            width: 100%; /* Make button full width */
-        }
-        .contact-form button:hover {
-            background-color: #218838; /* Hover effect for the button */
-        }
 
-        /* Dark mode styles */
-        body.dark-mode .contact-form input,
-        body.dark-mode .contact-form textarea {
-            background: rgba(255, 255, 255, 0.1); /* Darker background for dark mode */
-            color: white; /* Ensure text color is white for better contrast */
-        }
-
-        
-    </style>
 </head>
 <body>
     <div class="theme-icon" onclick="toggleTheme()">
