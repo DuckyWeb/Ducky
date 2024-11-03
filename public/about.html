@@ -51,6 +51,15 @@
         .contact-form button:hover {
             background-color: #218838; /* Hover effect for the button */
         }
+
+        /* Dark mode styles */
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1); /* Darker background for dark mode */
+            color: white; /* Ensure text color is white for better contrast */
+        }
+
+        
     </style>
 </head>
 <body>
@@ -70,6 +79,10 @@
         <div class="contact-form">
             <h2>Contact Us</h2>
             <form action="https://formspree.io/f/xkgnjyrp" method="POST">
+                <label>
+                    Your name:
+                    <input type="text" name="name" required>
+                </label>
                 <label>
                     Your email:
                     <input type="email" name="email" required>
